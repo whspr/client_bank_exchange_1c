@@ -360,6 +360,7 @@ class Payer(Section):
         date_charged = Field('ДатаСписано', 'Дата списания средств с р/с', Required.FROM_BANK, type=Type.DATE)
         name = Field('Плательщик', 'Плательщик', Required.TO_BANK)
         inn = Field('ПлательщикИНН', 'ИНН плательщика', Required.BOTH)
+        inn = Field('ПлательщикКПП', 'КПП плательщика')
         l1_name = Field('Плательщик1', 'Наименование плательщика, стр. 1', Required.TO_BANK)
         l2_account_number = Field('Плательщик2', 'Наименование плательщика, стр. 2')
         l3_bank = Field('Плательщик3', 'Наименование плательщика, стр. 3')
@@ -370,7 +371,7 @@ class Payer(Section):
         bank_bic = Field('ПлательщикБИК', 'БИК банка плательщика', Required.TO_BANK)
         bank_corr_account = Field('ПлательщикКорсчет', 'Корсчет банка плательщика', Required.TO_BANK)
 
-    def __init__(self, account: str = None, date_charged: Type.DATE.value.type = None, name: str = None,
+    def __init__(self, account: str = None, date_charged: Type.DATE.value.type = None, name: str = None, kpp: str = None,
                  inn: str = None, l1_name: str = None, l2_account_number: str = None, l3_bank: str = None,
                  l4_city: str = None, account_number: str = None, bank_1_name: str = None, bank_2_city: str = None,
                  bank_bic: str = None, bank_corr_account: str = None):
@@ -379,6 +380,7 @@ class Payer(Section):
         self.date_charged = date_charged
         self.name = name
         self.inn = inn
+        self.kpp = kpp
         self.l1_name = l1_name
         self.l2_account_number = l2_account_number
         self.l3_bank = l3_bank
@@ -403,6 +405,7 @@ class Receiver(Section):
         date_received = Field('ДатаПоступило', 'Дата поступления средств на р/с', Required.FROM_BANK)
         name = Field('Получатель', 'Получатель', Required.TO_BANK)
         inn = Field('ПолучательИНН', 'ИНН получателя', Required.BOTH)
+        kpp = Field('ПолучательКПП', 'КПП получателя')
         l1_name = Field('Получатель1', 'Наименование получателя', Required.TO_BANK)
         l2_account_number = Field('Получатель2', 'Наименование получателя, стр. 2')
         l3_bank = Field('Получатель3', 'Наименование получателя, стр. 3')
@@ -413,7 +416,7 @@ class Receiver(Section):
         bank_bic = Field('ПолучательБИК', 'БИК банка получателя', Required.TO_BANK)
         bank_corr_account = Field('ПолучательКорсчет', 'Корсчет банка получателя', Required.TO_BANK)
 
-    def __init__(self, account: str = None, date_received: str = None, name: str = None, inn: str = None,
+    def __init__(self, account: str = None, date_received: str = None, name: str = None, kpp: str = None,inn: str = None,
                  l1_name: str = None, l2_account_number: str = None, l3_bank: str = None, l4_city: str = None,
                  account_number: str = None, bank_1_name: str = None, bank_2_city: str = None, bank_bic: str = None,
                  bank_corr_account: str = None):
@@ -422,6 +425,7 @@ class Receiver(Section):
         self.date_received = date_received
         self.name = name
         self.inn = inn
+        self.kpp = kpp
         self.l1_name = l1_name
         self.l2_account_number = l2_account_number
         self.l3_bank = l3_bank
