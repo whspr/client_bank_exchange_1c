@@ -25,7 +25,7 @@ test_requirements = [
 
 setup(
     name='client_bank_exchange_1c',
-    version='0.1.8',
+    version='0.1.9',
     description="Handling of 1CClientBankExchange format",
     # long_description=readme + '\n\n' + history,
     author="Denis Kim",
